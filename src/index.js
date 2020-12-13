@@ -6,11 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import CostumThemeProvider from './constants/theme';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <CostumThemeProvider>
-      <App />
-    </CostumThemeProvider>
-  </React.StrictMode>,
+  <CostumThemeProvider>
+    <App />
+  </CostumThemeProvider>,
   document.getElementById('root')
 );
 

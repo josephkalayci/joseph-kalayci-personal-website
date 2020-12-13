@@ -8,19 +8,6 @@ let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
 
 theme = createMuiTheme({
-  typography: {
-    fontFamily: `"Raleway","Raleway-semibold","Roboto", "Helvetica", "Arial", sans-serif`,
-    h1: {
-      '@media (min-width:600px)': {
-        fontSize: '32pt',
-        lineHeight: '36pt',
-      },
-      [theme.breakpoints.up('md')]: {
-        fontSize: '32pt',
-        lineHeight: '36pt',
-      },
-    },
-  },
   palette: {
     primary: {
       light: '#757ce8',
@@ -33,6 +20,15 @@ theme = createMuiTheme({
       main: '#04c2c9',
       dark: '#ba000d',
       contrastText: '#000',
+    },
+  },
+  typography: {
+    fontFamily: `"Raleway","Raleway-semibold","Roboto", "Helvetica", "Arial", sans-serif`,
+    h3: {
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '1.4rem',
+        lineHeight: '1.6rem',
+      },
     },
   },
 });

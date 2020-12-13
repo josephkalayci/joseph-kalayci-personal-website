@@ -3,6 +3,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import backgroundImage from '../assets/images/homeBackground.png';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import { AnimationExample } from './Space';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     borderColor: '#fff',
     textTransform: 'none',
     marginTop: 20,
-    fontSize: '13pt',
+    fontSize: '1.2rem',
 
     '&:hover': {
       background: theme.palette.primary.main,
@@ -53,10 +54,15 @@ const Home = () => {
       alignItems='center'
       component='section'
       className={classes.root}
+      id='home'
     >
-      <Typography component='h1' className={classes.text}>
+      <AnimationExample
+        background='transparent'
+        style={{ marginBottom: 16, height: 400, width: 400 }}
+      />
+      <Typography component='h1' variant='h3' className={classes.text}>
         {"Hello, I'm "}
-        <Typography component='span' className={classes.highlight}>
+        <Typography component='span' variant='h3' className={classes.highlight}>
           Joseph Kalayci
         </Typography>
         {'.'}
@@ -70,6 +76,7 @@ const Home = () => {
         endIcon={<ArrowForwardIcon />}
         size='large'
         className={classes.button}
+        href={'#about'}
       >
         View my work
       </Button>
