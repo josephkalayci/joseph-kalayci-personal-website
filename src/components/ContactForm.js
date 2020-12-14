@@ -1,11 +1,13 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Container } from '@material-ui/core';
+import { Button, Container, LinearProgress, Snackbar } from '@material-ui/core';
+import MuiAlert from '@material-ui/lab/Alert';
 import clsx from 'clsx';
 import db from '../firebase/firebase';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    position: 'relative',
     backgroundColor: '#252934',
     textAlign: 'center',
     margin: '40px auto 0 auto',
@@ -43,18 +45,40 @@ const useStyles = makeStyles((theme) => ({
       transform: 'rotate(90deg)',
     },
   },
+  success: {
+    position: 'relative',
+    color: '#fff',
+    backgroundColor: '#04c986',
+    textAlign: 'center',
+  },
+  closeButton: {
+    position: 'absolute',
+    right: 0,
+  },
+  loading: {
+    position: 'absolute',
+    top: -4,
+    left: 25,
+    right: 25,
+  },
 }));
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant='filled' {...props} />;
+}
 
 const ContactForm = () => {
   const classes = useStyles();
-
+  const [isLoading, setIsloading] = React.useState(false);
+  const [isResponseVisible, setIsResponseVisible] = React.useState(false);
+  console.log(isResponseVisible);
   const handleSubmit = (event) => {
     event.preventDefault();
     const name = event.target.name.value;
     const email = event.target.email.value;
     const message = event.target.message.value;
-    console.log(name, email, message);
-
+    setIsloading(true);
+    console.log('submitting form');
     // Add a new document with a generated id.
     db.collection('messages')
       .add({
@@ -63,43 +87,63 @@ const ContactForm = () => {
         message: message,
       })
       .then(function (docRef) {
+        setIsloading(false);
+        setIsResponseVisible(true);
         event.target.reset();
       })
       .catch(function (error) {
+        setIsloading(false);
         alert(`Opps! something went wrong. Please try agail later\n ${error}`);
         console.error('Error adding document: ', error);
       });
   };
 
   return (
-    <Container
-      component='form'
-      maxWidth='sm'
-      className={classes.root}
-      onSubmit={handleSubmit}
-    >
-      <input
-        placeholder='Name'
-        name='name'
-        type='text'
-        className={classes.input}
-      />
-      <input
-        placeholder='Enter email'
-        name='email'
-        type='email'
-        className={classes.input}
-      />
-      <textarea
-        placeholder='Your Message'
-        name='message'
-        type='text'
-        className={clsx(classes.input, classes.textArea)}
-      />
-      <Button type='submit' variant='outlined' className={classes.button}>
-        Submit
-      </Button>
-    </Container>
+    <React.Fragment>
+      <Container
+        component='form'
+        maxWidth='sm'
+        className={classes.root}
+        onSubmit={handleSubmit}
+      >
+        <input
+          placeholder='Name'
+          name='name'
+          type='text'
+          className={classes.input}
+          required
+        />
+        <input
+          placeholder='Enter email'
+          name='email'
+          type='email'
+          className={classes.input}
+          required
+        />
+        <textarea
+          placeholder='Your Message'
+          name='message'
+          type='text'
+          className={clsx(classes.input, classes.textArea)}
+        />
+        {isLoading && (
+          <LinearProgress color='secondary' className={classes.loading} />
+        )}
+        <Snackbar
+          open={isResponseVisible}
+          autoHideDuration={6000}
+          onClose={() => setIsResponseVisible(false)}
+        >
+          <Alert onClose={() => setIsResponseVisible(false)} severity='success'>
+            {'Your message was sent successfully. Thanks!'}
+          </Alert>
+        </Snackbar>
+
+        <Button type='submit' variant='outlined' className={classes.button}>
+          Submit
+        </Button>
+      </Container>
+    </React.Fragment>
   );
 };
 

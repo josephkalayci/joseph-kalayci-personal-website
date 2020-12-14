@@ -1,10 +1,4 @@
-import {
-  Button,
-  Container,
-  Grid,
-  Typography,
-  useMediaQuery,
-} from '@material-ui/core';
+import { Button, Grid, Typography, useMediaQuery } from '@material-ui/core';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import backgroundImage from '../../assets/images/homeBackground.png';
@@ -65,23 +59,21 @@ const useStyles = makeStyles((theme) => ({
 const Home = () => {
   const classes = useStyles();
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down('xs'));
+  const [isSticky, setSticky] = React.useState(false);
+  const stickyRef = React.useRef(null);
 
   React.useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', () => handleScroll);
     };
   }, []);
 
-  const [isSticky, setSticky] = React.useState(false);
-
-  const stickyRef = React.useRef(null);
   const handleScroll = () => {
     stickyRef.current.getBoundingClientRect().y < 0
       ? setSticky(true)
       : setSticky(false);
   };
-
-  window.addEventListener('scroll', handleScroll);
 
   return (
     <Grid
