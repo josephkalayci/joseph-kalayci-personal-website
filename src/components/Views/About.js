@@ -1,32 +1,31 @@
-import { Button, Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, useMediaQuery } from '@material-ui/core';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import SpeedIcon from '@material-ui/icons/Speed';
 import FlareIcon from '@material-ui/icons/Flare';
 import DevicesIcon from '@material-ui/icons/Devices';
 import GpsFixedIcon from '@material-ui/icons/GpsFixed';
-import profileImage from '../assets/images/profileImage.png';
-import Hexagon from './Hexagon';
 import AOS from 'aos';
-import 'aos/dist/aos.css';
-import ProfileCard from './ProfileCard';
-import Skills from './Skills';
-import { profile } from '../constants/personalInfo';
+import '../../../node_modules/aos/dist/aos.css';
+
+//Custom components
+import Hexagon from '../Hexagon';
+import ProfileCard from '../ProfileCard';
+import Skills from '../Skills';
+import { profile } from '../../constants/personalInfo';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     color: '#616161',
-    lineHeight: '11pt',
     padding: '70px 0 70px 0',
   },
   header: {
-    fontWeight: 600,
+    fontWeight: 700,
     color: '#444649',
-    fontSize: '25pt',
   },
   headerBar: {
     display: 'blcok',
-    fontWeight: 600,
+    fontWeight: 700,
     backgroundColor: '#444649',
     height: 4,
     width: 70,
@@ -48,40 +47,28 @@ const useStyles = makeStyles((theme) => ({
   subHeading: {
     marginTop: 20,
     marginBottom: 10,
-    fontSize: '14pt',
-    fontWeight: 'bold',
+    fontWeight: 700,
   },
-  text: {
-    fontSize: '11pt',
-  },
+  text: {},
 }));
 
 const About = () => {
   const classes = useStyles();
+  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down('xs'));
 
   React.useEffect(() => {
-    AOS.init({
-      duration: 2000,
-    });
+    AOS.init();
   }, []);
 
   const Card = ({ title, description, icon, image }) => (
     <div className={classes.cardContainer} data-animation='slide-in-left'>
-      {image ? (
-        <img
-          src={profileImage}
-          style={{ width: 250 }}
-          alt='Joseph Kalayci profile'
-        />
-      ) : (
-        <Hexagon height={100}>{icon}</Hexagon>
-      )}
+      <Hexagon height={isSmallScreen ? 80 : 100}>{icon}</Hexagon>
 
       <div>
-        <Typography className={classes.subHeading} component='div'>
+        <Typography className={classes.subHeading} component='div' variant='h3'>
           {title}
         </Typography>
-        <Typography className={classes.text} component='div'>
+        <Typography className={classes.text} component='div' variant='body1'>
           {description}
         </Typography>
       </div>
@@ -98,11 +85,11 @@ const About = () => {
       component='section'
       className={classes.root}
     >
-      <Typography component='div' variant='h1' className={classes.header}>
+      <Typography component='div' variant='h2' className={classes.header}>
         ABOUT
       </Typography>
       <div className={classes.headerBar} />
-      <Grid item container spacing={1}>
+      <Grid item container>
         <Grid item container xs={6} sm={6} md={3}>
           <Card
             icon={<SpeedIcon className={classes.icon} />}
@@ -112,14 +99,14 @@ const About = () => {
         </Grid>
         <Grid item xs={6} sm={6} md={3}>
           <Card
-            icon={<DevicesIcon className={classes.icon} />}
+            icon={<FlareIcon className={classes.icon} />}
             title='Intuitive'
             description='Strong preference for easy to use, intuitive UX/UI.'
           />
         </Grid>
         <Grid item xs={6} sm={6} md={3}>
           <Card
-            icon={<FlareIcon className={classes.icon} />}
+            icon={<DevicesIcon className={classes.icon} />}
             title='Responsive'
             description='My layouts will work on any device, big or small.'
           />
@@ -131,10 +118,10 @@ const About = () => {
             description={`Websites don't have to be static, I love making pages come to life.`}
           />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} style={{ marginTop: 50 }}>
           <ProfileCard />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} style={{ marginTop: 50 }}>
           <Skills skills={profile.skills} />
         </Grid>
       </Grid>

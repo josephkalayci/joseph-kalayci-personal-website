@@ -1,42 +1,49 @@
 import { Typography } from '@material-ui/core';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from 'react-scroll';
-import profileImage from '../assets/images/profileImage.png';
+import '../../node_modules/aos/dist/aos.css';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-
     lineHeight: '18pt',
-    padding: 16,
+    padding: '16px 0 0 0',
   },
   row: {
+    position: 'relative',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     height: 28,
-    fontSize: '7pt',
     marginBottom: 16,
     backgroundColor: '#eee',
+    fontSize: '11pt',
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '7pt',
+    },
     '& span': {
       color: '#666',
-      paddingRight: 16,
+      padding: '0 16px 0 16px',
       fontSize: '11pt',
+      [theme.breakpoints.down('xs')]: {
+        display: 'none',
+      },
     },
   },
   skillName: {
-    width: 110,
-    color: '#fff',
-    fontSize: '11pt',
-    textTransform: 'uppercase',
-    backgroundColor: '#04c2c9',
-    textAlign: 'center',
-    fontWeight: 'bold',
+    position: 'absolute',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    left: '0',
     height: '100%',
+    width: 120,
+    color: '#fff',
+    backgroundColor: theme.palette.primary.main,
+    fontWeight: 700,
   },
   bar: {
-    transition: '1.2s 0.2s width ease-in-out',
     backgroundColor: '#00a1a7',
   },
 }));
@@ -45,13 +52,22 @@ const Skills = ({ skills }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} data-aos='slide-in-right'>
       {skills.map((skill, id) => (
         <div className={classes.row} key={id}>
-          <div className={classes.bar} style={{ width: `${skill.rate}%` }}>
-            <div className={classes.skillName}>{`${skill.name}`}</div>
-          </div>
-          <span>{`${skill.rate}%`}</span>
+          <Typography
+            component='div'
+            className={classes.bar}
+            style={{
+              width: `${skill.rate}%`,
+            }}
+          >
+            <Typography
+              component='div'
+              className={classes.skillName}
+            >{`${skill.name}`}</Typography>
+          </Typography>
+          <Typography component='span'>{`${skill.rate}%`}</Typography>
         </div>
       ))}
     </div>

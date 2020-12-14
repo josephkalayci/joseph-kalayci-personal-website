@@ -15,13 +15,10 @@ const useStyles = makeStyles((theme) => ({
 
   subHeading: {
     marginTop: 20,
-    marginBottom: 10,
-    fontSize: '14pt',
-    fontWeight: 'bold',
+    marginBottom: 15,
+    fontWeight: 700,
   },
-  text: {
-    fontSize: '11pt',
-  },
+  text: {},
   highlight: {
     color: '#009ada',
     '&:hover': {
@@ -34,18 +31,18 @@ const ProfileCard = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.cardContainer}>
+    <div className={classes.cardContainer} data-aos='slide-in-left'>
       <img
         src={profileImage}
-        style={{ width: 250 }}
-        alt='Joseph Kalayci profile'
+        style={{ height: 250 }}
+        alt={`Joseph Y. Kalayci profile`}
       />
 
       <div>
-        <Typography className={classes.subHeading} component='div'>
+        <Typography className={classes.subHeading} component='div' variant='h3'>
           {`Who's this guy?`}
         </Typography>
-        <Typography className={classes.text} component='div' href=''>
+        <Typography className={classes.text} component='div' variant='body1'>
           {`I'm a freelancer Full Stack Javascript Developer in Toronto, ON.`}
           <br />
           {`
@@ -55,7 +52,7 @@ const ProfileCard = () => {
             `}
           <br />
           <Link
-            to='home'
+            to='contact'
             spy={true}
             smooth={true}
             className={classes.highlight}

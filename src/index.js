@@ -4,9 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CostumThemeProvider from './constants/theme';
+import { CssBaseline } from '@material-ui/core';
 
 ReactDOM.render(
   <CostumThemeProvider>
+    <CssBaseline />
     <App />
   </CostumThemeProvider>,
   document.getElementById('root')
