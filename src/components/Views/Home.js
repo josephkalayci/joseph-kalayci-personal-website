@@ -112,22 +112,19 @@ const Home = () => {
           {"I'm a full-stack javascript developer"}
         </Typography>
 
-        <Link
+        <Button
+          component={Link}
           to='about'
           spy={true}
           smooth={true}
-          className={classes.scroolButtonWarpper}
+          variant='outlined'
+          color='secondary'
+          endIcon={<ArrowForwardIcon />}
+          size='large'
+          className={classes.button}
         >
-          <Button
-            variant='outlined'
-            color='secondary'
-            endIcon={<ArrowForwardIcon />}
-            size='large'
-            className={classes.button}
-          >
-            View my work
-          </Button>
-        </Link>
+          View my work
+        </Button>
       </Grid>
       <div
         ref={stickyRef}

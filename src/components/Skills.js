@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     lineHeight: '18pt',
     padding: '16px 0 0 0',
+    overflowX: 'hidden',
   },
   row: {
     position: 'relative',

@@ -90,7 +90,7 @@ const Footer = () => {
         </IconButton>
       </Link>
 
-      <Grid item container justify='center' spacing={4}>
+      <Grid item container justify='center'>
         <Grid item>
           <IconButton
             className={classes.button}
@@ -108,6 +108,7 @@ const Footer = () => {
             target='_blank'
             rel='noopener noreferrer'
             className={classes.button}
+            style={{ marginLeft: 16, marginRight: 16 }}
             aria-label='github'
           >
             <GitHubIcon fontSize='inherit' />
