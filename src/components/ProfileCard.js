@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '11pt',
   },
   highlight: {
-    color: '#009ada',
+    color: '#0079AD',
     cursor: 'pointer',
   },
 }));

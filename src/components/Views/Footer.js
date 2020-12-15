@@ -55,8 +55,6 @@ const useStyles = makeStyles((theme) => ({
   footNote: {
     marginTop: 35,
     color: '#8f9aa7',
-
-    opacity: 0.6,
     '& p ': {
       fontSize: 18,
     },

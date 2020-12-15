@@ -9,7 +9,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     lineHeight: '18pt',
     padding: '16px 0 0 0',
-    overflowX: 'hidden',
   },
   row: {
     position: 'relative',
@@ -40,12 +39,12 @@ const useStyles = makeStyles((theme) => ({
     left: '0',
     height: '100%',
     width: 120,
-    color: '#fff',
-    backgroundColor: theme.palette.primary.main,
-    fontWeight: 700,
+    color: '#fafafa',
+    backgroundColor: '#008085',
+    fontWeight: 600,
   },
   bar: {
-    backgroundColor: '#00a1a7',
+    backgroundColor: theme.palette.primary.main,
   },
 }));
 

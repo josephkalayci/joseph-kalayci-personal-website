@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
   },
   tech: {
-    color: theme.palette.secondary.main,
+    color: theme.palette.secondary.dark,
     textAlign: 'center',
   },
   button: {

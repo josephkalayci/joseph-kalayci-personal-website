@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.secondary.main,
     },
   },
-  activeLink: { color: theme.palette.secondary.main },
+  activeLink: { color: theme.palette.secondary.light },
   menuButton: {
     color: '#fff',
     fontSize: 28,
