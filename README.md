@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# Joseph Kalayci Personal Webpage
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was build with React.js and Material UI
+
+
+
 
 ## Available Scripts
 
