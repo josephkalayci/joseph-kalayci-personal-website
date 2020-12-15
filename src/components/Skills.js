@@ -52,9 +52,15 @@ const Skills = ({ skills }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root} data-aos='slide-in-right'>
+    <div className={classes.root} id={'skills'}>
       {skills.map((skill, id) => (
-        <div className={classes.row} key={id}>
+        <div
+          className={classes.row}
+          key={id}
+          data-aos='fade-left'
+          data-aos-anchor='#skills'
+          data-aos-delay={(skills.length - id) * 200}
+        >
           <Typography
             component='div'
             className={classes.bar}

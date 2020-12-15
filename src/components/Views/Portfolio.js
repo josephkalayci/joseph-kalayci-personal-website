@@ -52,10 +52,19 @@ const Portfolio = () => {
       component='section'
       className={classes.root}
     >
-      <Typography component='div' variant='h2' className={classes.header}>
+      <Typography
+        component='div'
+        variant='h2'
+        className={classes.header}
+        data-aos='fade-left'
+      >
         PORTFOLIO
       </Typography>
-      <div className={classes.headerBar} />
+      <div
+        className={classes.headerBar}
+        data-aos='fade-left'
+        data-aos-delay='300'
+      />
       {/* <FullWidthTabs /> */}
       <Grid
         container
@@ -64,7 +73,15 @@ const Portfolio = () => {
         style={{ maxWidth: 1200 }}
       >
         {profile.portfolio.map((project, id) => (
-          <Grid item xs={12} sm={6} md={4} key={id}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            key={id}
+            data-aos='fade-up'
+            data-aos-delay={id * 200}
+          >
             <PortfolioCard
               title={project.title}
               tech={project.tech}

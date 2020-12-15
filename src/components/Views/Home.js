@@ -126,9 +126,6 @@ const Home = () => {
         style={{
           position: 'absolute',
           bottom: 0,
-          height: 20,
-          width: 200,
-          backgroundColor: 'yellow',
         }}
       />
 

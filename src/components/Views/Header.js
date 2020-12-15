@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     margin: '0 20px',
-    fontSize: '12pt',
+    fontSize: 18,
     transition: 'color 0.5s',
     textTransform: 'uppercase',
     cursor: 'pointer',
@@ -106,6 +106,7 @@ const Navbar = ({ sticky }) => {
           to='home'
           spy={true}
           smooth={true}
+          tabIndex='0'
         >
           Home
         </Link>
@@ -115,6 +116,7 @@ const Navbar = ({ sticky }) => {
           to='about'
           spy={true}
           smooth={true}
+          tabIndex='0'
         >
           About
         </Link>
@@ -124,6 +126,7 @@ const Navbar = ({ sticky }) => {
           to='portfolio'
           spy={true}
           smooth={true}
+          tabIndex='0'
         >
           Portfolio
         </Link>
@@ -133,6 +136,7 @@ const Navbar = ({ sticky }) => {
           to='contact'
           spy={true}
           smooth={true}
+          tabIndex='0'
         >
           Contact
         </Link>

@@ -60,11 +60,11 @@ const About = () => {
     AOS.init();
   }, []);
 
-  const Card = ({ title, description, icon, image }) => (
-    <div className={classes.cardContainer} data-animation='slide-in-left'>
+  const Card = ({ title, description, icon, image, ...rest }) => (
+    <div className={classes.cardContainer} {...rest}>
       <Hexagon height={isSmallScreen ? 80 : 100}>{icon}</Hexagon>
 
-      <div>
+      <div data-aos='zoom-in' data-aos-delay='600'>
         <Typography className={classes.subHeading} component='div' variant='h3'>
           {title}
         </Typography>
@@ -85,13 +85,23 @@ const About = () => {
       component='section'
       className={classes.root}
     >
-      <Typography component='div' variant='h2' className={classes.header}>
+      <Typography
+        component='div'
+        variant='h2'
+        className={classes.header}
+        data-aos='fade-right'
+      >
         ABOUT
       </Typography>
-      <div className={classes.headerBar} />
+      <div
+        className={classes.headerBar}
+        data-aos='fade-right'
+        data-aos-delay='500'
+      />
       <Grid item container>
         <Grid item container xs={6} sm={6} md={3}>
           <Card
+            data-aos='flip-left'
             icon={<SpeedIcon className={classes.icon} />}
             title='Fast'
             description='Fast load times and lag free interaction, my highest priority.'
@@ -99,6 +109,8 @@ const About = () => {
         </Grid>
         <Grid item xs={6} sm={6} md={3}>
           <Card
+            data-aos='flip-left'
+            data-aos-delay='200'
             icon={<FlareIcon className={classes.icon} />}
             title='Intuitive'
             description='Strong preference for easy to use, intuitive UX/UI.'
@@ -106,6 +118,8 @@ const About = () => {
         </Grid>
         <Grid item xs={6} sm={6} md={3}>
           <Card
+            data-aos='flip-left'
+            data-aos-delay='400'
             icon={<DevicesIcon className={classes.icon} />}
             title='Responsive'
             description='My layouts will work on any device, big or small.'
@@ -113,12 +127,21 @@ const About = () => {
         </Grid>
         <Grid item xs={6} sm={6} md={3}>
           <Card
+            data-aos='flip-left'
+            data-aos-delay='600'
             icon={<GpsFixedIcon className={classes.icon} />}
             title='Dynamic'
             description={`Websites don't have to be static, I love making pages come to life.`}
           />
         </Grid>
-        <Grid item xs={12} md={6} style={{ marginTop: 50 }}>
+        <Grid
+          item
+          xs={12}
+          md={6}
+          style={{ marginTop: 50 }}
+          data-aos='fade-right'
+          data-aos-duration='1000'
+        >
           <ProfileCard />
         </Grid>
         <Grid item xs={12} md={6} style={{ marginTop: 50 }}>

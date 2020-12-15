@@ -66,12 +66,26 @@ const Contact = () => {
         <path d='M0 0 L50 100 L100 0 Z' fill='white' stroke='white'></path>
       </svg>
 
-      <Typography component='div' variant='h2' className={classes.header}>
+      <Typography
+        component='div'
+        variant='h2'
+        className={classes.header}
+        data-aos='fade-right'
+      >
         CONTACT
       </Typography>
-      <div className={classes.headerBar} />
+      <div
+        className={classes.headerBar}
+        data-aos='fade-left'
+        data-aos-delay='300'
+      />
 
-      <Typography component='div' className={classes.highlight}>
+      <Typography
+        component='div'
+        className={classes.highlight}
+        data-aos='fade-left'
+        data-aos-delay='300'
+      >
         Have a question or want to work together?
       </Typography>
 

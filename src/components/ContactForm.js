@@ -99,51 +99,51 @@ const ContactForm = () => {
   };
 
   return (
-    <React.Fragment>
-      <Container
-        component='form'
-        maxWidth='sm'
-        className={classes.root}
-        onSubmit={handleSubmit}
+    <Container
+      component='form'
+      maxWidth='sm'
+      className={classes.root}
+      onSubmit={handleSubmit}
+      data-aos='zoom-in'
+      data-aos-delay='600'
+    >
+      <input
+        placeholder='Name'
+        name='name'
+        type='text'
+        className={classes.input}
+        required
+      />
+      <input
+        placeholder='Enter email'
+        name='email'
+        type='email'
+        className={classes.input}
+        required
+      />
+      <textarea
+        placeholder='Your Message'
+        name='message'
+        type='text'
+        className={clsx(classes.input, classes.textArea)}
+      />
+      {isLoading && (
+        <LinearProgress color='secondary' className={classes.loading} />
+      )}
+      <Snackbar
+        open={isResponseVisible}
+        autoHideDuration={6000}
+        onClose={() => setIsResponseVisible(false)}
       >
-        <input
-          placeholder='Name'
-          name='name'
-          type='text'
-          className={classes.input}
-          required
-        />
-        <input
-          placeholder='Enter email'
-          name='email'
-          type='email'
-          className={classes.input}
-          required
-        />
-        <textarea
-          placeholder='Your Message'
-          name='message'
-          type='text'
-          className={clsx(classes.input, classes.textArea)}
-        />
-        {isLoading && (
-          <LinearProgress color='secondary' className={classes.loading} />
-        )}
-        <Snackbar
-          open={isResponseVisible}
-          autoHideDuration={6000}
-          onClose={() => setIsResponseVisible(false)}
-        >
-          <Alert onClose={() => setIsResponseVisible(false)} severity='success'>
-            {'Your message was sent successfully. Thanks!'}
-          </Alert>
-        </Snackbar>
+        <Alert onClose={() => setIsResponseVisible(false)} severity='success'>
+          {'Your message was sent successfully. Thanks!'}
+        </Alert>
+      </Snackbar>
 
-        <Button type='submit' variant='outlined' className={classes.button}>
-          Submit
-        </Button>
-      </Container>
-    </React.Fragment>
+      <Button type='submit' variant='outlined' className={classes.button}>
+        Submit
+      </Button>
+    </Container>
   );
 };
 

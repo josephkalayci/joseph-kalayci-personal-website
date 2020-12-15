@@ -4,10 +4,10 @@ import { Grid, IconButton, Typography } from '@material-ui/core';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { Link } from 'react-scroll';
-
 import { profile } from '../../constants/personalInfo';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     position: 'relative',
@@ -44,9 +44,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 0,
     height: 50,
     width: 50,
-    transform: 'rotate(-90deg)',
-    fontSize: '36px',
-    transition: 'all 1s ease',
+    fontSize: '30px',
+    //transform: 'rotate(-90deg)',
     '&:hover': {
       background: theme.palette.secondary.light,
       borderColor: theme.palette.secondary.light,
@@ -86,28 +85,42 @@ const Footer = () => {
         smooth={true}
         className={classes.scroolButtonWarpper}
       >
-        <IconButton
-          className={classes.scroolButton}
-          color='secondary'
-          aria-label='scroll to top'
-        >
-          <DoubleArrowIcon fontSize='inherit' />
+        <IconButton className={classes.scroolButton} aria-label='scroll to top'>
+          <KeyboardArrowUpIcon fontSize='inherit' />
         </IconButton>
       </Link>
 
       <Grid item container justify='center' spacing={4}>
         <Grid item>
-          <IconButton href='' className={classes.button} aria-label='linkedIn'>
+          <IconButton
+            className={classes.button}
+            aria-label='linkedIn'
+            href={profile.linkedInUrl}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             <LinkedInIcon fontSize='inherit' />
           </IconButton>
         </Grid>
         <Grid item>
-          <IconButton href='' className={classes.button} aria-label='github'>
+          <IconButton
+            href={profile.githubUrl}
+            target='_blank'
+            rel='noopener noreferrer'
+            className={classes.button}
+            aria-label='github'
+          >
             <GitHubIcon fontSize='inherit' />
           </IconButton>
         </Grid>
         <Grid item>
-          <IconButton href='' className={classes.button} aria-label='youtube'>
+          <IconButton
+            href={profile.youtubeUrl}
+            target='_blank'
+            rel='noopener noreferrer'
+            className={classes.button}
+            aria-label='youtube'
+          >
             <YouTubeIcon fontSize='inherit' />
           </IconButton>
         </Grid>

@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   carauselWrapper: {
     position: 'relative',
     width: '100%',
-    paddingTop: '63%',
+    paddingTop: '58%',
   },
   imageWrapper: {
     height: 100,
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 
   image: {
     height: '100%',
-    backgroundPosition: 'center',
+    backgroundPosition: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
   },
@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#c0c0c0',
     fontWeight: 700,
   },
-  description: { marginTop: 15 },
+  description: { marginTop: 15, whiteSpace: 'pre-line' },
   contentWrapper: {
     padding: '16px 60px 35px 25px',
     borderTop: '3px solid #1b242f',
@@ -179,7 +179,7 @@ const PortfolioModal = ({
           {tech}
         </Typography>
         <Typography
-          component='p'
+          component='div'
           variant='body1'
           className={classes.description}
         >

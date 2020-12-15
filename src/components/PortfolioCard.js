@@ -8,14 +8,14 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     width: '100%',
     paddingTop: '63%',
-    '&:hover $bgImage': {
+    '&:hover $bgImage, &:focus-within $bgImage': {
       opacity: 0,
     },
-    '&:hover $description': {
+    '&:hover $description, &:focus-within $description': {
       opacity: 1,
       top: '25%',
     },
-    '&:hover $button': {
+    '&:hover $button, &:focus-within $button': {
       opacity: 1,
       bottom: '25%',
     },
@@ -50,7 +50,6 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.main,
     textAlign: 'center',
   },
-
   button: {
     position: 'absolute',
     bottom: 0,
