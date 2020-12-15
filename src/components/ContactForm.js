@@ -109,6 +109,7 @@ const ContactForm = () => {
     >
       <input
         placeholder='Name'
+        aria-label='name'
         name='name'
         type='text'
         className={classes.input}
@@ -116,6 +117,7 @@ const ContactForm = () => {
       />
       <input
         placeholder='Enter email'
+        aria-label='email'
         name='email'
         type='email'
         className={classes.input}
@@ -124,6 +126,7 @@ const ContactForm = () => {
       <textarea
         placeholder='Your Message'
         name='message'
+        aria-label='message'
         type='text'
         className={clsx(classes.input, classes.textArea)}
       />

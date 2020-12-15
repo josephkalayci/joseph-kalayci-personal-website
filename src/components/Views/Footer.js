@@ -36,8 +36,9 @@ const useStyles = makeStyles((theme) => ({
       transform: 'rotateX(360deg)',
     },
   },
-  scroolButtonWarpper: { position: 'absolute', top: -25 },
   scroolButton: {
+    position: 'absolute',
+    top: -25,
     color: '#fff',
     //borderColor: '#fff',
     backgroundColor: theme.palette.secondary.main,
@@ -77,16 +78,16 @@ const Footer = () => {
       component='footer'
       className={classes.root}
     >
-      <Link
+      <IconButton
+        component={Link}
         to='home'
         spy={true}
         smooth={true}
-        className={classes.scroolButtonWarpper}
+        className={classes.scroolButton}
+        aria-label='scroll to top'
       >
-        <IconButton className={classes.scroolButton} aria-label='scroll to top'>
-          <KeyboardArrowUpIcon fontSize='inherit' />
-        </IconButton>
-      </Link>
+        <KeyboardArrowUpIcon fontSize='inherit' />
+      </IconButton>
 
       <Grid item container justify='center'>
         <Grid item>

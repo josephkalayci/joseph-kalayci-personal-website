@@ -16,7 +16,7 @@ theme = createMuiTheme({
       //contrastText: '#fff',
     },
     secondary: {
-      light: '#EB5694',
+      light: '#EE72A6',
       main: '#e31b6d',
       dark: '#D71968',
       //contrastText: '#fff',
