@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     color: '#fff',
     backgroundColor: '#252934',
+    paddingBottom: 50,
   },
   text: {
     fontSize: '32pt',
@@ -75,7 +76,6 @@ const Home = () => {
       ? setSticky(true)
       : setSticky(false);
   };
-
   return (
     <Grid
       container
@@ -86,42 +86,49 @@ const Home = () => {
       className={classes.root}
       id='home'
     >
-      <SpaceCanvas
-        background='transparent'
-        touch={isSmallScreen ? false : true}
-        style={{
-          marginBottom: 16,
-          height: 350,
-          width: 350,
-          marginTop: -63,
-        }}
-      />
-      <Typography component='h1' className={classes.text}>
-        {"Hello, I'm "}
-        <Typography component='span' className={classes.highlight}>
-          {`${profile.name} ${profile.surname}`}
+      <Grid item>
+        {/* TODO:Component doest update state properly. Temporarily force to re-render on screen size changes */}
+        {/* TODO:Consider to replace with another animated component */}
+        <SpaceCanvas
+          background='transparent'
+          key={isSmallScreen}
+          touch={isSmallScreen ? false : true}
+          style={{
+            marginBottom: 16,
+            height: isSmallScreen ? 300 : 400,
+            width: isSmallScreen ? 300 : 400,
+            marginTop: -63,
+          }}
+        />
+      </Grid>
+      <Grid item>
+        <Typography component='h1' className={classes.text}>
+          {"Hello, I'm "}
+          <Typography component='span' className={classes.highlight}>
+            {`${profile.name} ${profile.surname}`}
+          </Typography>
+          {'.'}
+          <br />
+          {"I'm a full-stack javascript developer"}
         </Typography>
-        {'.'}
-        <br />
-        {"I'm a full-stack javascript developer"}
-      </Typography>
 
-      <Link
-        to='about'
-        spy={true}
-        smooth={true}
-        className={classes.scroolButtonWarpper}
-      >
-        <Button
-          variant='outlined'
-          color='secondary'
-          endIcon={<ArrowForwardIcon />}
-          size='large'
-          className={classes.button}
+        <Link
+          to='about'
+          spy={true}
+          smooth={true}
+          className={classes.scroolButtonWarpper}
         >
-          View my work
-        </Button>
-      </Link>
+          <Button
+            variant='outlined'
+            color='secondary'
+            endIcon={<ArrowForwardIcon />}
+            size='large'
+            className={classes.button}
+          >
+            View my work
+          </Button>
+        </Link>
+      </Grid>
       <div
         ref={stickyRef}
         style={{
