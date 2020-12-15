@@ -3,6 +3,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import backgroundImage from '../../assets/images/homeBackground.png';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import { profile } from '../../constants/personalInfo';
 import { Link } from 'react-scroll';
 
 import { SpaceCanvas } from '../SpaceCanvas';
@@ -98,7 +99,7 @@ const Home = () => {
       <Typography component='h1' className={classes.text}>
         {"Hello, I'm "}
         <Typography component='span' className={classes.highlight}>
-          Joseph Kalayci
+          {`${profile.name} ${profile.surname}`}
         </Typography>
         {'.'}
         <br />

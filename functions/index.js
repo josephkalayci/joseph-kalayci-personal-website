@@ -6,7 +6,6 @@ admin.initializeApp(functions.config().firebase);
 //to make it work you need gmail account
 const gmailEmail = functions.config().gmail.login;
 const gmailPassword = functions.config().gmail.pass;
-console.log(gmailEmail, gmailPassword);
 
 //email transponder
 const transporter = nodemailer.createTransport({

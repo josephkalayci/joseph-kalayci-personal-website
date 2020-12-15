@@ -118,7 +118,6 @@ const PortfolioModal = ({
 
   const [imageIndex, setImageIndex] = React.useState(0);
   const handleNext = () => {
-    console.log('handle next');
     setImageIndex(imageIndex + 1);
   };
 

@@ -12,7 +12,7 @@ import ctfcWelcomeCenter3 from '../assets/images/ctfcWelcomeCenter3.png';
 import ctfcWelcomeCenter4 from '../assets/images/ctfcWelcomeCenter4.png';
 import ctfcWelcomeCenter5 from '../assets/images/ctfcWelcomeCenter5.png';
 export const profile = {
-  name: 'Joseph',
+  name: 'Joseph Y.',
   surname: 'Kalayci',
   email: 'joseph.kalayci@gmail.com',
   githubUrl: 'https://github.com/josephkalayci',

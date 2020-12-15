@@ -71,14 +71,14 @@ const ContactForm = () => {
   const classes = useStyles();
   const [isLoading, setIsloading] = React.useState(false);
   const [isResponseVisible, setIsResponseVisible] = React.useState(false);
-  console.log(isResponseVisible);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const name = event.target.name.value;
     const email = event.target.email.value;
     const message = event.target.message.value;
     setIsloading(true);
-    console.log('submitting form');
+
     // Add a new document with a generated id.
     db.collection('messages')
       .add({
