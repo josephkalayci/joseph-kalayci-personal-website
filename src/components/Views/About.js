@@ -1,12 +1,10 @@
-import { Grid, Typography, useMediaQuery } from '@material-ui/core';
+import { Container, Grid, Typography, useMediaQuery } from '@material-ui/core';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import SpeedIcon from '@material-ui/icons/Speed';
 import FlareIcon from '@material-ui/icons/Flare';
 import DevicesIcon from '@material-ui/icons/Devices';
 import GpsFixedIcon from '@material-ui/icons/GpsFixed';
-import AOS from 'aos';
-import '../../../node_modules/aos/dist/aos.css';
 
 //Custom components
 import Hexagon from '../Hexagon';
@@ -56,10 +54,6 @@ const About = () => {
   const classes = useStyles();
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down('xs'));
 
-  React.useEffect(() => {
-    AOS.init();
-  }, []);
-
   const Card = ({ title, description, icon, image, ...rest }) => (
     <div className={classes.cardContainer} {...rest}>
       <Hexagon height={isSmallScreen ? 80 : 100}>{icon}</Hexagon>
@@ -76,79 +70,80 @@ const About = () => {
   );
 
   return (
-    <Grid
-      id='about'
-      container
-      direction='column'
-      justify='center'
-      alignItems='center'
-      component='section'
-      className={classes.root}
-    >
-      <Typography
-        component='div'
-        variant='h2'
-        className={classes.header}
-        data-aos='fade-right'
+    <Container maxWidth='lg' component='section'>
+      <Grid
+        id='about'
+        container
+        direction='column'
+        justify='center'
+        alignItems='center'
+        className={classes.root}
       >
-        ABOUT
-      </Typography>
-      <div
-        className={classes.headerBar}
-        data-aos='fade-right'
-        data-aos-delay='500'
-      />
-      <Grid item container>
-        <Grid item container xs={6} sm={6} md={3}>
-          <Card
-            data-aos='flip-left'
-            icon={<SpeedIcon className={classes.icon} />}
-            title='Fast'
-            description='Fast load times and lag free interaction, my highest priority.'
-          />
-        </Grid>
-        <Grid item xs={6} sm={6} md={3}>
-          <Card
-            data-aos='flip-left'
-            data-aos-delay='200'
-            icon={<FlareIcon className={classes.icon} />}
-            title='Intuitive'
-            description='Strong preference for easy to use, intuitive UX/UI.'
-          />
-        </Grid>
-        <Grid item xs={6} sm={6} md={3}>
-          <Card
-            data-aos='flip-left'
-            data-aos-delay='400'
-            icon={<DevicesIcon className={classes.icon} />}
-            title='Responsive'
-            description='My layouts will work on any device, big or small.'
-          />
-        </Grid>
-        <Grid item xs={6} sm={6} md={3}>
-          <Card
-            data-aos='flip-left'
-            data-aos-delay='600'
-            icon={<GpsFixedIcon className={classes.icon} />}
-            title='Dynamic'
-            description={`Websites don't have to be static, I love making pages come to life.`}
-          />
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          md={6}
-          style={{ marginTop: 50 }}
+        <Typography
+          component='div'
+          variant='h2'
+          className={classes.header}
           data-aos='fade-right'
-          data-aos-duration='1000'
         >
-          <ProfileCard />
-        </Grid>
-        <Grid item xs={12} md={6} style={{ marginTop: 50 }}>
-          <Skills skills={profile.skills} />
+          ABOUT
+        </Typography>
+        <div
+          className={classes.headerBar}
+          data-aos='fade-right'
+          data-aos-delay='500'
+        />
+        <Grid item container>
+          <Grid item container xs={6} sm={6} md={3}>
+            <Card
+              data-aos='flip-left'
+              icon={<SpeedIcon className={classes.icon} />}
+              title='Fast'
+              description='Fast load times and lag free interaction, my highest priority.'
+            />
+          </Grid>
+          <Grid item xs={6} sm={6} md={3}>
+            <Card
+              data-aos='flip-left'
+              data-aos-delay='200'
+              icon={<FlareIcon className={classes.icon} />}
+              title='Intuitive'
+              description='Strong preference for easy to use, intuitive UX/UI.'
+            />
+          </Grid>
+          <Grid item xs={6} sm={6} md={3}>
+            <Card
+              data-aos='flip-left'
+              data-aos-delay='400'
+              icon={<DevicesIcon className={classes.icon} />}
+              title='Responsive'
+              description='My layouts will work on any device, big or small.'
+            />
+          </Grid>
+          <Grid item xs={6} sm={6} md={3}>
+            <Card
+              data-aos='flip-left'
+              data-aos-delay='600'
+              icon={<GpsFixedIcon className={classes.icon} />}
+              title='Dynamic'
+              description={`Websites don't have to be static, I love making pages come to life.`}
+            />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            style={{ marginTop: 50 }}
+            data-aos='fade-right'
+            data-aos-duration='1000'
+          >
+            <ProfileCard />
+          </Grid>
+          <Grid item xs={12} md={6} style={{ marginTop: 50 }}>
+            <Skills skills={profile.skills} />
+          </Grid>
         </Grid>
       </Grid>
-    </Grid>
+    </Container>
   );
 };
 

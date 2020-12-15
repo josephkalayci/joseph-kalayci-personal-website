@@ -65,7 +65,7 @@ const Portfolio = () => {
         data-aos='fade-left'
         data-aos-delay='300'
       />
-      {/* <FullWidthTabs /> */}
+
       <Grid
         container
         justify='center'
