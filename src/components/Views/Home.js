@@ -65,7 +65,7 @@ const Home = () => {
   const stickyRef = React.useRef(null);
 
   React.useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       window.removeEventListener('scroll', () => handleScroll);
     };

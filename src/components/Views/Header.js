@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  Container,
-  IconButton,
-  makeStyles,
-  useMediaQuery,
-} from '@material-ui/core';
+import { Container, IconButton, makeStyles } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import clsx from 'clsx';
 import { Link } from 'react-scroll';
@@ -38,12 +33,12 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       position: 'absolute',
       top: 50,
+      visibility: 'hidden',
       height: 0,
       flexDirection: 'column',
       alignItems: 'baseline',
-      overflow: 'hidden',
       backgroundColor: '#333',
-      transition: 'height 0.3s ease-out',
+      transition: 'visibility 0.3s, height 0.3s ease-out',
       '& a': {
         margin: 0,
         padding: '10px 20px 10px 20px',
@@ -51,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   linkWrapperVisible: {
+    visibility: 'visible',
     height: 180,
   },
   link: {
@@ -87,7 +83,6 @@ const useStyles = makeStyles((theme) => ({
 const Navbar = ({ sticky }) => {
   const classes = useStyles();
   const [isVisible, setIsVisible] = React.useState(false);
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down('xs'));
 
   return (
     <nav
@@ -97,7 +92,7 @@ const Navbar = ({ sticky }) => {
         maxWidth='lg'
         className={clsx({
           [classes.linkWrapper]: true,
-          [classes.linkWrapperVisible]: isSmallScreen && isVisible,
+          [classes.linkWrapperVisible]: isVisible,
         })}
       >
         <Link

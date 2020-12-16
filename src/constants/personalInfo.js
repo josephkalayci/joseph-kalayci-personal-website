@@ -1,16 +1,16 @@
-import nosmarket1 from '../assets/images/nosmarket.png';
-import nosmarket2 from '../assets/images/nosmarket2.png';
-import nosmarket3 from '../assets/images/nosmarket3.png';
-import nosmarketMobile1 from '../assets/images/nosmarketMobile.png';
-import nosmarketMobile2 from '../assets/images/nosmarketMobile2.png';
-import nosmarketMobile3 from '../assets/images/nosmarketMobile3.png';
-import personalWebpage1 from '../assets/images/personalWebpage.png';
-import personalWebpage2 from '../assets/images/personalWebpage2.png';
-import ctfcWelcomeCenter1 from '../assets/images/ctfcWelcomeCenter.png';
-import ctfcWelcomeCenter2 from '../assets/images/ctfcWelcomeCenter2.png';
-import ctfcWelcomeCenter3 from '../assets/images/ctfcWelcomeCenter3.png';
-import ctfcWelcomeCenter4 from '../assets/images/ctfcWelcomeCenter4.png';
-import ctfcWelcomeCenter5 from '../assets/images/ctfcWelcomeCenter5.png';
+import nosmarket1 from '../assets/images/nosmarket.jpeg';
+import nosmarket2 from '../assets/images/nosmarket2.jpeg';
+import nosmarket3 from '../assets/images/nosmarket3.jpeg';
+import nosmarketMobile1 from '../assets/images/nosmarketMobile.jpeg';
+import nosmarketMobile2 from '../assets/images/nosmarketMobile2.jpeg';
+import nosmarketMobile3 from '../assets/images/nosmarketMobile3.jpeg';
+import personalWebpage1 from '../assets/images/personalWebpage.jpeg';
+import personalWebpage2 from '../assets/images/personalWebpage2.jpeg';
+import ctfcWelcomeCenter1 from '../assets/images/ctfcWelcomeCenter.jpeg';
+import ctfcWelcomeCenter2 from '../assets/images/ctfcWelcomeCenter2.jpeg';
+import ctfcWelcomeCenter3 from '../assets/images/ctfcWelcomeCenter3.jpeg';
+import ctfcWelcomeCenter4 from '../assets/images/ctfcWelcomeCenter4.jpeg';
+import ctfcWelcomeCenter5 from '../assets/images/ctfcWelcomeCenter5.jpeg';
 export const profile = {
   name: 'Joseph Y.',
   surname: 'Kalayci',
